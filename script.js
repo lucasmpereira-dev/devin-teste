@@ -68,6 +68,11 @@ document.addEventListener('DOMContentLoaded', function () {
       if (entry.isIntersecting) {
         entry.target.classList.add('visible');
         observer.unobserve(entry.target);
+        // Remove fade-in class after animation completes so card hover transitions work
+        entry.target.addEventListener('transitionend', function handler() {
+          entry.target.classList.remove('fade-in');
+          entry.target.removeEventListener('transitionend', handler);
+        });
       }
     });
   }, observerOptions);
