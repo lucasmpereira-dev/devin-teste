@@ -79,11 +79,25 @@ document.addEventListener('DOMContentLoaded', function () {
 
   // Observe cards and sections for animation
   var animatedElements = document.querySelectorAll(
-    '.feature-card, .pricing-card, .career-card, .quick-info-item'
+    '.feature-card, .pricing-card, .career-card, .quick-info-item, .campus-card, .stat-item'
   );
   animatedElements.forEach(function (el) {
     el.classList.add('fade-in');
     observer.observe(el);
   });
+
+  // --- Hide scroll indicator on scroll ---
+  var scrollIndicator = document.querySelector('.hero-scroll-indicator');
+  if (scrollIndicator) {
+    window.addEventListener('scroll', function () {
+      if (window.scrollY > 100) {
+        scrollIndicator.style.opacity = '0';
+        scrollIndicator.style.pointerEvents = 'none';
+      } else {
+        scrollIndicator.style.opacity = '1';
+        scrollIndicator.style.pointerEvents = 'auto';
+      }
+    });
+  }
 
 });
