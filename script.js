@@ -74,7 +74,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
   // Observe cards and sections for animation
   var animatedElements = document.querySelectorAll(
-    '.feature-card, .detail-card, .pricing-card, .career-card'
+    '.feature-card, .pricing-card, .career-card, .quick-info-item'
   );
   animatedElements.forEach(function (el) {
     el.classList.add('fade-in');
